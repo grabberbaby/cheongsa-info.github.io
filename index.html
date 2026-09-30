@@ -1,34 +1,116 @@
-.contact {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 12px 0;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  text-align: left;
-}
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>청사 시설관리 연락처</title>
 
-.contact h2 {
-  margin: 0 0 4px;
-  font-size: 1.1rem;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+      text-align: center;
+    }
 
-.contact p {
-  margin: 0;
-  color: #555;
-}
+    main {
+      max-width: 520px;
+      margin: 0 auto;
+    }
 
-.call {
-  display: inline-block;
-  flex-shrink: 0;
-  padding: 9px 14px;
-  border-radius: 6px;
-  background: #1d4ed8;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  white-space: nowrap;
-}
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
+    }
+
+    .intro {
+      margin: 0 0 24px;
+      color: #555;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 12px 0;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      text-align: left;
+    }
+
+    .contact-info {
+      min-width: 0;
+    }
+
+    .contact h2 {
+      margin: 0 0 4px;
+      font-size: 1.1rem;
+    }
+
+    .contact p {
+      margin: 0;
+      color: #555;
+    }
+
+    .call {
+      display: inline-block;
+      flex-shrink: 0;
+      padding: 9px 14px;
+      border-radius: 6px;
+      background: #1d4ed8;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .call:focus {
+      outline: 3px solid #222;
+      outline-offset: 3px;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 380px) {
+      .contact {
+        flex-wrap: wrap;
+      }
+
+      .call {
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>청사 시설관리 연락처</h1>
+    <p class="intro">
+      화장실 이용 중 불편 사항이 있으면 담당 업무를 선택해 연락해 주세요.
+    </p>
+
+    <section class="contact">
+      <div class="contact-info">
+        <h2>청소</h2>
+        <p>청소 상태, 비품 부족 등</p>
+      </div>
+      <a class="call" href="tel:0647106936">전화 064-710-6936</a>
+    </section>
+
+    <section class="contact">
+      <div class="contact-info">
+        <h2>전기</h2>
+        <p>조명, 콘센트 고장 등</p>
+      </div>
+      <a class="call" href="tel:0647106936">전화 064-710-6936</a>
