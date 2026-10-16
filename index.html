@@ -1,149 +1,303 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>청사 시설관리 연락처</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청사 시설관리 연락처</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 24px 16px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #222;
-      background: #fff;
-      text-align: center;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    main {
-      max-width: 520px;
-      margin: 0 auto;
-    }
+        body {
+            margin: 0;
+            padding: 24px 16px;
+            font-family: Arial, "Malgun Gothic", sans-serif;
+            background: #f4f6f9;
+            color: #222;
+            line-height: 1.6;
+        }
 
-    h1 {
-      margin: 0 0 8px;
-      font-size: 1.6rem;
-    }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
 
-    .intro {
-      margin: 0 0 24px;
-      color: #555;
-    }
+        .header {
+            padding: 24px 18px;
+            background: #174a8b;
+            color: white;
+            border-radius: 14px;
+            text-align: center;
+        }
 
-    .contact {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 12px 0;
-      padding: 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
-      text-align: left;
-    }
+        .header h1 {
+            margin: 0;
+            font-size: 23px;
+        }
 
-    .contact-info {
-      min-width: 0;
-    }
+        .location {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            background: #ffffff;
+            border: 2px solid #174a8b;
+            border-radius: 12px;
+        }
 
-    .contact h2 {
-      margin: 0 0 4px;
-      font-size: 1.1rem;
-    }
+        .location-label {
+            margin: 0 0 6px;
+            color: #555;
+            font-size: 14px;
+        }
 
-    .contact p {
-      margin: 0;
-      color: #555;
-    }
+        .location-name {
+            margin: 0;
+            color: #174a8b;
+            font-size: 20px;
+            font-weight: bold;
+            word-break: keep-all;
+        }
 
-    .call {
-      display: inline-block;
-      flex-shrink: 0;
-      padding: 9px 14px;
-      border-radius: 6px;
-      background: #1d4ed8;
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+        .section {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
 
-    .call:focus {
-      outline: 3px solid #222;
-      outline-offset: 3px;
-    }
+        .section h2 {
+            margin: 0 0 10px;
+            font-size: 19px;
+        }
 
-    footer {
-      margin-top: 24px;
-      color: #555;
-      font-size: 0.9rem;
-    }
+        .description {
+            margin: 0 0 18px;
+            color: #555;
+            font-size: 14px;
+            word-break: keep-all;
+        }
 
-    @media (max-width: 380px) {
-      .contact {
-        flex-wrap: wrap;
-      }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 14px 0;
+            border-top: 1px solid #e8e8e8;
+        }
 
-      .call {
-        margin-left: auto;
-      }
-    }
-  </style>
+        .contact-info {
+            min-width: 0;
+        }
+
+        .contact-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .contact-number {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .call-button {
+            flex-shrink: 0;
+            display: inline-block;
+            padding: 9px 15px;
+            background: #174a8b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .call-button:hover {
+            background: #103765;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+        }
+    </style>
 </head>
 
 <body>
-  <main>
-    <h1>청사 시설관리 연락처</h1>
-    <p class="intro">
-      화장실 이용 중 불편 사항이 있으실 경우 해당 번호로 연락 바랍니다.
-    </p>
 
-    <section class="contact">
-      <div class="contact-info">
-        <h2>청소</h2>
-        <p>청소 상태, 비품 부족 등</p>
-      </div>
-      <a class="call" href="tel:0647106936">전화 064-710-6936</a>
+<div class="container">
+
+    <header class="header">
+        <h1>청사 시설관리 연락처</h1>
+    </header>
+
+    <!-- QR코드에 따라 현재 위치가 표시되는 영역 -->
+    <section class="location" id="locationBox">
+        <p class="location-label">현재 위치</p>
+        <p class="location-name" id="locationName"></p>
     </section>
 
-    <section class="contact">
-      <div class="contact-info">
-        <h2>전기</h2>
-        <p>조명, 콘센트 고장 등</p>
-      </div>
-      <a class="call" href="tel:0647106936">전화 064-710-6936</a>
+    <section class="section">
+        <h2>시설관리 연락처</h2>
+
+        <p class="description">
+            화장실 이용 중 불편 사항이 있으실 경우
+            해당 번호로 연락 바랍니다.
+        </p>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <div class="contact-name">청소</div>
+                <div class="contact-number">064-710-6936</div>
+            </div>
+            <a class="call-button" href="tel:0647106936">전화하기</a>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <div class="contact-name">설비</div>
+                <div class="contact-number">064-710-6937</div>
+            </div>
+            <a class="call-button" href="tel:0647106937">전화하기</a>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <div class="contact-name">건축</div>
+                <div class="contact-number">064-710-6935</div>
+            </div>
+            <a class="call-button" href="tel:0647106935">전화하기</a>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <div class="contact-name">방역</div>
+                <div class="contact-number">064-710-6936</div>
+            </div>
+            <a class="call-button" href="tel:0647106936">전화하기</a>
+        </div>
     </section>
 
-    <section class="contact">
-      <div class="contact-info">
-        <h2>설비</h2>
-        <p>수도, 대·소변기 고장 등</p>
-      </div>
-      <a class="call" href="tel:0647106937">전화 064-710-6937</a>
-    </section>
-
-    <section class="contact">
-      <div class="contact-info">
-        <h2>건축</h2>
-        <p>문, 벽, 바닥 등 시설 파손</p>
-      </div>
-      <a class="call" href="tel:0647106935">전화 064-710-6935</a>
-    </section>
-
-    <section class="contact">
-      <div class="contact-info">
-        <h2>방역</h2>
-        <p>해충, 방역 관련 문의</p>
-      </div>
-      <a class="call" href="tel:0647106936">전화 064-710-6936</a>
-    </section>
-
-    <footer>
-      운영 시간: 평일 09:00~18:00<br>
-      총무과 청사관리팀
+    <footer class="footer">
+        제주특별자치도 청사 시설관리
     </footer>
-  </main>
+
+</div>
+
+<script>
+    // QR 식별번호별 화장실 명칭
+    // 새 화장실을 추가할 때는 이 목록에 항목을 추가하면 됩니다.
+
+    const rooms = {
+        "101": "제1청사 본관 지하층 남자화장실",
+        "102": "제1청사 본관 지하층 여자화장실",
+        "103": "제1청사 본관 1층 남자화장실",
+        "104": "제1청사 본관 1층 여자화장실",
+        "105": "제1청사 본관 1층 장애인화장실",
+        "106": "제1청사 본관 2층 남자화장실",
+        "107": "제1청사 본관 2층 여자화장실",
+        "108": "제1청사 본관 3층 서쪽 남자화장실",
+        "109": "제1청사 본관 3층 서쪽 여자화장실",
+        "110": "제1청사 본관 3층 동쪽 남자화장실",
+        "111": "제1청사 본관 3층 동쪽 여자화장실",
+        "112": "제1청사 본관 4층 남자화장실",
+        "113": "제1청사 본관 4층 여자화장실",
+        "114": "제1청사 본관 야외 남자화장실",
+        "115": "제1청사 본관 야외 여자화장실",
+        "116": "제1청사 별관 1층 북쪽 남자화장실",
+        "117": "제1청사 별관 1층 북쪽 여자화장실",
+        "118": "제1청사 별관 1층 북쪽 장애인화장실",
+        "119": "제1청사 별관 1층 남쪽 남자화장실",
+        "120": "제1청사 별관 1층 남쪽 여자화장실",
+        "121": "제1청사 별관 1층 남쪽 장애인화장실",
+        "122": "제1청사 별관 2층 북쪽 남자화장실",
+        "123": "제1청사 별관 2층 북쪽 여자화장실",
+        "124": "제1청사 별관 2층 남쪽 남자화장실",
+        "125": "제1청사 별관 2층 남쪽 여자화장실",
+        "126": "제1청사 별관 3층 북쪽 남자화장실",
+        "127": "제1청사 별관 3층 북쪽 여자화장실",
+        "128": "제1청사 별관 3층 남쪽 남자화장실",
+        "129": "제1청사 별관 3층 남쪽 여자화장실",
+        "130": "제1청사 식당동 1층 남자화장실",
+        "131": "제1청사 식당동 1층 여자화장실",
+
+        "201": "제2청사 본관 1층 남자화장실",
+        "202": "제2청사 본관 1층 여자화장실",
+        "203": "제2청사 본관 1층 장애인화장실",
+        "204": "제2청사 본관 2층 남자화장실",
+        "205": "제2청사 본관 2층 여자화장실",
+        "206": "제2청사 본관 3층 남자화장실",
+        "207": "제2청사 본관 3층 여자화장실",
+        "208": "제2청사 본관 4층 남자화장실",
+        "209": "제2청사 본관 4층 여자화장실",
+        "210": "제2청사 1별관 1층 여자화장실",
+        "211": "제2청사 1별관 2층 남자화장실",
+        "212": "제2청사 1별관 3층 여자화장실",
+        "213": "제2청사 2별관 1층 여자화장실",
+        "214": "제2청사 2별관 2층 남자화장실",
+        "215": "제2청사 2별관 3층 남자화장실",
+        "216": "제2청사 2별관 3층 여자화장실",
+        "217": "제2청사 4별관 동쪽 남자화장실",
+        "218": "제2청사 4별관 동쪽 여자화장실",
+        "219": "제2청사 4별관 중앙 남자화장실",
+        "220": "제2청사 4별관 중앙 여자화장실",
+
+        "301": "제3청사 본관 1층 로비 장애인화장실",
+        "302": "제3청사 본관 1층 통로 여자화장실",
+        "303": "제3청사 본관 1층 통로 장애인화장실",
+        "304": "제3청사 본관 1층 동쪽 남자화장실",
+        "305": "제3청사 본관 1층 동쪽 여자화장실",
+        "306": "제3청사 본관 2층 통로 남자화장실",
+        "307": "제3청사 본관 2층 동쪽 남자화장실",
+        "308": "제3청사 본관 2층 동쪽 여자화장실",
+        "309": "제3청사 본관 3층 통로 남자화장실",
+        "310": "제3청사 본관 3층 통로 여자화장실",
+        "311": "제3청사 1별관 1층 남자화장실",
+        "312": "제3청사 1별관 1층 여자화장실",
+        "313": "제3청사 1별관 2층 남자화장실",
+        "314": "제3청사 1별관 2층 여자화장실",
+        "315": "제3청사 1별관 3층 남자화장실",
+        "316": "제3청사 1별관 3층 여자화장실",
+        "317": "제3청사 2별관 2층 장애인화장실",
+        "318": "제3청사 2별관 2층 남자화장실",
+        "319": "제3청사 2별관 2층 여자화장실",
+        "320": "제3청사 2별관 3층 남자화장실",
+        "321": "제3청사 2별관 3층 여자화장실",
+        "322": "제3청사 3별관 지하층화장실",
+        "323": "제3청사 3별관 1층 남자화장실",
+        "324": "제3청사 3별관 1층 여자화장실",
+        "325": "제3청사 3별관 1층 남자장애인화장실",
+        "326": "제3청사 3별관 1층 여자장애인화장실",
+        "327": "제3청사 3별관 2층 남자화장실",
+        "328": "제3청사 3별관 2층 여자화장실",
+        "329": "제3청사 3별관 2층 남자장애인화장실",
+        "330": "제3청사 3별관 2층 여자장애인화장실",
+        "331": "제3청사 3별관 3층 남자화장실",
+        "332": "제3청사 3별관 3층 여자화장실",
+        "333": "제3청사 3별관 3층 남자장애인화장실",
+        "334": "제3청사 3별관 3층 여자장애인화장실",
+        "335": "제3청사 3별관 4층 남자화장실",
+        "336": "제3청사 3별관 4층 여자화장실",
+        "337": "제3청사 3별관 4층 남자장애인화장실",
+        "338": "제3청사 3별관 4층 여자장애인화장실"
+    };
+
+    // 주소의 ?room=101 부분을 읽어 현재 위치 표시
+    const params = new URLSearchParams(window.location.search);
+    const roomId = params.get("room");
+
+    if (roomId && rooms[roomId]) {
+        document.getElementById("locationName").textContent =
+            rooms[roomId];
+
+        document.getElementById("locationBox").style.display = "block";
+    }
+</script>
+
 </body>
 </html>
